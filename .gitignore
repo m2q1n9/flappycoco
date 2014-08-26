@@ -1,12 +1,4 @@
 # -*- mode: gitignore; -*-
-*~
-._*
 .DS_Store
-.Trashes
-.Spotlight-V100
-*.o
-*.so
-*.gz
-*.tar
-*.zip
-*.log
+/frameworks/
+/runtime/
