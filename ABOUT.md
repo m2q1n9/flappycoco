@@ -68,9 +68,13 @@ cclog("visibleRect = %s", dump1(visibleRect))
 
 ## 纹理配置文件解析
 纹理图片和配置文件从最新版的`Flappy Birds Family`拆包获得
+<br/>
 纹理配置文件`atlas_text.txt`结构：`name, width, height, x, y, w, h`
+<br/>
 这边用一行Lua正则表达式实现解析：
+<br/>
 `([%w_]+)%s+(%d+)%s+(%d+)%s+([%d%.]+)%s+([%d%.]+)%s+([%d%.]+)%s+([%d%.]+)`
+
 ```lua
 local t = {}
 local s = ccFileUtils:getStringFromFile("atlas_text.txt")
@@ -132,10 +136,13 @@ end
 
 ## 构造物理世界
 **游戏中碰撞检测和小鸟运动均使用物理引擎实现：**
-
+<br/>
 小鸟和物理世界中的任意物体发生碰撞均会导致死亡
+<br/>
 游戏进行中小鸟会受到重力影响而加速往下降
+<br/>
 触摸屏幕时对小鸟施加一个向上的初速度，获得瞬间向上跳跃的效果
+<br/>
 小鸟头部也会随着Y轴速度的变化而转动相应角度，使得运动更加逼真
 
 **初始化物理世界：**
@@ -151,6 +158,7 @@ function SceneGame:ctor()
 ```
 
 **创建物体并附加到相应单位：**
+
 `edgeBox`：
 ```lua
 local size = cc.size(visibleRect.width, visibleRect.height-Config.groundHeight)
@@ -189,6 +197,7 @@ self:setPhysicsBody(body)
 ```
 
 `setDynamic`控制物体是否受重力影响
+<br/>
 `setContactTestBitmask`设置接触测试位掩码
 
 ## 调度器和事件处理
